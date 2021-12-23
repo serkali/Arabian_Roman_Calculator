@@ -1,7 +1,7 @@
 import operation.*;
 
 public class ArabianRomanCalc {
-    public static void calculations(String oneString, String operation, String twoString) {
+    public static void calculations(String oneString,String operation,String twoString) {
         int numberOne = 0;
         int numberTwo = 0;
         int result = 0;
@@ -12,8 +12,8 @@ public class ArabianRomanCalc {
             numberTwo = Integer.parseInt(twoString);
         } catch (Exception e) {
             try {
-                numberOne = Integer.parseInt(Converter.romanToArabic(oneString));
-                numberTwo = Integer.parseInt(Converter.romanToArabic(twoString));
+                numberOne = Converter.toArabic(oneString);
+                numberTwo = Converter.toArabic(twoString);
                 flag = true;
             } catch (Exception e1) {
                 System.out.println("Вы ввели не верные данные");
@@ -41,7 +41,7 @@ public class ArabianRomanCalc {
             result = action.operation(numberOne, numberTwo);
         }
         if (flag) {
-            String roman = Converter.arabicToRoman(result);
+            String roman = Converter.toRoman(result);
             System.out.println(roman);
 
         } else System.out.println(result);
